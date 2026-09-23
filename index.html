@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ClientFlow CRM — bilingual sales CRM and pipeline portfolio demo.">
+  <meta name="theme-color" content="#11131A">
+  <title>ClientFlow CRM</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page-loader" id="pageLoader">
+    <img src="assets/logo.svg" alt="" width="50" height="50">
+    <span>ClientFlow</span>
+  </div>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="logo" href="#" aria-label="ClientFlow CRM">
+      <img src="assets/logo.svg" alt="ClientFlow logo">
+      <div><strong>ClientFlow</strong><small>CRM</small></div>
+    </a>
+
+    <nav class="side-nav">
+      <button class="nav-item active" data-view="dashboard">
+        <svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg>
+        <span data-i18n="nav.dashboard">Dashboard</span>
+      </button>
+      <button class="nav-item" data-view="pipeline">
+        <svg viewBox="0 0 24 24"><path d="M4 5h4v14H4zM10 8h4v11h-4zM16 3h4v16h-4z"/></svg>
+        <span data-i18n="nav.pipeline">Pipeline</span>
+      </button>
+      <button class="nav-item" data-view="contacts">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c.5-5 3-8 7-8s6.5 3 7 8M17 7h5M19.5 4.5v5"/></svg>
+        <span data-i18n="nav.contacts">Contacts</span>
+      </button>
+      <button class="nav-item" data-view="tasks">
+        <svg viewBox="0 0 24 24"><path d="m4 12 4 4L20 4M4 21h16"/></svg>
+        <span data-i18n="nav.tasks">Tasks</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-note">
+      <span data-i18n="sidebar.demo">Portfolio Demo</span>
+      <small data-i18n="sidebar.local">Data stored locally in your browser</small>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-card">
+        <div class="avatar owner">FB</div>
+        <div><strong>Francisco Bene</strong><small data-i18n="user.role">Administrator</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="top-left">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle">Overview of your sales activity.</p>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <label class="search-box">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="searchInput" type="search" placeholder="Search lead or company">
+        </label>
+
+        <div class="lang-switch" aria-label="Language">
+          <button id="langEN" class="lang-btn active">EN</button>
+          <button id="langPT" class="lang-btn">PT</button>
+        </div>
+
+        <button class="icon-btn" id="themeBtn" title="Toggle theme" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+        </button>
+
+        <button class="primary-btn" id="addLeadBtn">
+          <span>+</span><span data-i18n="actions.newLead">New lead</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="view active" id="dashboardView">
+        <section class="welcome-card reveal">
+          <div>
+            <span class="eyebrow" data-i18n="hero.eyebrow">SALES WORKSPACE</span>
+            <h2 data-i18n="hero.title">Keep every opportunity moving.</h2>
+            <p data-i18n="hero.text">Track leads, priorities and follow-ups from one simple workspace.</p>
+            <button class="secondary-btn" data-go="pipeline">
+              <span data-i18n="hero.cta">Open pipeline</span> →
+            </button>
+          </div>
+          <img src="assets/illustrations/dashboard.svg" alt="CRM dashboard illustration">
+        </section>
+
+        <div class="metric-grid">
+          <article class="metric-card reveal">
+            <div class="metric-icon purple">
+              <svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+            </div>
+            <div class="metric-head"><span data-i18n="metrics.pipeline">Total pipeline</span><b>↗ 12%</b></div>
+            <strong id="totalPipeline">0 MT</strong>
+            <small data-i18n="metrics.pipelineDesc">Value of all open opportunities</small>
+          </article>
+
+          <article class="metric-card reveal">
+            <div class="metric-icon blue">
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c.5-5 3-8 7-8s6.5 3 7 8M17 7h5M19.5 4.5v5"/></svg>
+            </div>
+            <div class="metric-head"><span data-i18n="metrics.active">Active leads</span><b>+4</b></div>
+            <strong id="activeLeads">0</strong>
+            <small data-i18n="metrics.activeDesc">Opportunities still in progress</small>
+          </article>
+
+          <article class="metric-card reveal">
+            <div class="metric-icon green">
+              <svg viewBox="0 0 24 24"><path d="m4 14 5-5 4 4 7-8M20 5h-5"/></svg>
+            </div>
+            <div class="metric-head"><span data-i18n="metrics.closeRate">Close rate</span><b>↗ 5%</b></div>
+            <strong id="closeRate">0%</strong>
+            <small data-i18n="metrics.closeRateDesc">Won deals compared with the total</small>
+          </article>
+
+          <article class="metric-card reveal">
+            <div class="metric-icon orange">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 8h-4a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4H9M12 6v12"/></svg>
+            </div>
+            <div class="metric-head"><span data-i18n="metrics.revenue">Won revenue</span><b data-i18n="metrics.month">This month</b></div>
+            <strong id="wonRevenue">0 MT</strong>
+            <small data-i18n="metrics.revenueDesc">Value of opportunities marked as won</small>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="panel reveal">
+            <div class="panel-header">
+              <div><h2 data-i18n="dashboard.pipelineTitle">Sales pipeline</h2><p data-i18n="dashboard.pipelineDesc">Distribution of opportunities by stage.</p></div>
+              <button class="text-btn" data-go="pipeline" data-i18n="dashboard.viewPipeline">View pipeline →</button>
+            </div>
+            <div class="funnel-list" id="funnelList"></div>
+          </section>
+
+          <section class="panel reveal">
+            <div class="panel-header">
+              <div><h2 data-i18n="dashboard.activityTitle">Recent activity</h2><p data-i18n="dashboard.activityDesc">Latest updates in the CRM.</p></div>
+            </div>
+            <div class="activity-list" id="activityList"></div>
+          </section>
+        </div>
+
+        <section class="panel reveal">
+          <div class="panel-header">
+            <div><h2 data-i18n="dashboard.hotLeads">Priority leads</h2><p data-i18n="dashboard.hotLeadsDesc">High-value opportunities requiring attention.</p></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr>
+                <th data-i18n="table.lead">Lead</th>
+                <th data-i18n="table.company">Company</th>
+                <th data-i18n="table.value">Value</th>
+                <th data-i18n="table.stage">Stage</th>
+                <th data-i18n="table.owner">Owner</th>
+              </tr></thead>
+              <tbody id="priorityTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="pipelineView">
+        <div class="view-head">
+          <div><h2 data-i18n="pipeline.title">Sales Pipeline</h2><p data-i18n="pipeline.subtitle">Move opportunities between stages and track progress.</p></div>
+          <select id="pipelineFilter">
+            <option value="all" data-i18n="pipeline.all">All opportunities</option>
+            <option value="high" data-i18n="pipeline.high">High value</option>
+          </select>
+        </div>
+        <div class="kanban" id="kanbanBoard"></div>
+      </section>
+
+      <section class="view" id="contactsView">
+        <div class="view-head">
+          <div><h2 data-i18n="contacts.title">Contacts</h2><p data-i18n="contacts.subtitle">People and companies connected to your opportunities.</p></div>
+        </div>
+        <div class="contact-grid" id="contactGrid"></div>
+      </section>
+
+      <section class="view" id="tasksView">
+        <div class="view-head">
+          <div><h2 data-i18n="tasks.title">Tasks</h2><p data-i18n="tasks.subtitle">Follow-ups and actions linked to your sales work.</p></div>
+          <button class="primary-btn" id="addTaskBtn">+ <span data-i18n="tasks.new">New task</span></button>
+        </div>
+        <div class="task-list" id="taskList"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <div class="modal" id="leadModal">
+    <div class="modal-card">
+      <button class="modal-close" data-close-modal="leadModal">×</button>
+      <span class="eyebrow" data-i18n="modal.newOpportunity">NEW OPPORTUNITY</span>
+      <h2 data-i18n="modal.addLead">Add lead</h2>
+      <form id="leadForm">
+        <label><span data-i18n="form.name">Contact name</span><input name="name" required placeholder="Amina Costa"></label>
+        <label><span data-i18n="form.company">Company</span><input name="company" required placeholder="MobiTech Lda"></label>
+        <div class="form-grid">
+          <label><span data-i18n="form.value">Opportunity value</span><input name="value" type="number" min="1" required placeholder="85000"></label>
+          <label><span data-i18n="form.stage">Stage</span>
+            <select name="stage">
+              <option value="new">New</option><option value="qualified">Qualified</option>
+              <option value="proposal">Proposal</option><option value="negotiation">Negotiation</option>
+            </select>
+          </label>
+        </div>
+        <label><span data-i18n="form.email">E-mail</span><input name="email" type="email" required placeholder="amina@company.com"></label>
+        <button class="primary-btn full" type="submit" data-i18n="form.saveLead">Save lead</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="taskModal">
+    <div class="modal-card small-modal">
+      <button class="modal-close" data-close-modal="taskModal">×</button>
+      <span class="eyebrow" data-i18n="tasks.newTaskLabel">NEW TASK</span>
+      <h2 data-i18n="tasks.createTask">Create task</h2>
+      <form id="taskForm">
+        <label><span data-i18n="tasks.taskTitle">Task title</span><input name="title" required placeholder="Follow up with client"></label>
+        <label><span data-i18n="tasks.due">Due date</span><input name="date" type="date" required></label>
+        <button class="primary-btn full" type="submit" data-i18n="tasks.save">Save task</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
