@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="360" viewBox="0 0 700 360">
+<defs>
+  <linearGradient id="g" x1="0" x2="1"><stop stop-color="#5B4BFF"/><stop offset="1" stop-color="#8D82FF"/></linearGradient>
+  <filter id="s"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-opacity=".12"/></filter>
+</defs>
+<rect width="700" height="360" rx="30" fill="#F5F4FF"/>
+<circle cx="590" cy="58" r="110" fill="#E9E5FF"/>
+<circle cx="92" cy="306" r="95" fill="#E7F8F1"/>
+<g filter="url(#s)">
+  <rect x="92" y="76" width="516" height="214" rx="24" fill="white"/>
+  <rect x="122" y="110" width="160" height="18" rx="9" fill="#EEEAFD"/>
+  <rect x="122" y="145" width="115" height="11" rx="5.5" fill="#DADDE5"/>
+  <rect x="122" y="172" width="215" height="84" rx="16" fill="#F8F9FC"/>
+  <path d="M145 226c25-38 50-18 73-48 20 32 43 5 81 44" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="145" cy="226" r="7" fill="#5B4BFF"/>
+  <circle cx="218" cy="178" r="7" fill="#5B4BFF"/>
+  <circle cx="299" cy="222" r="7" fill="#5B4BFF"/>
+  <rect x="372" y="111" width="202" height="30" rx="11" fill="#11131A"/>
+  <rect x="372" y="158" width="172" height="14" rx="7" fill="#EBEDF2"/>
+  <rect x="372" y="183" width="190" height="14" rx="7" fill="#EBEDF2"/>
+  <rect x="372" y="208" width="148" height="14" rx="7" fill="#EBEDF2"/>
+  <rect x="372" y="244" width="92" height="24" rx="12" fill="#EAE7FF"/>
+  <rect x="474" y="244" width="100" height="24" rx="12" fill="#E7F8F1"/>
+</g>
+</svg>
